@@ -1,11 +1,44 @@
+import Todo from './Models/Todo';
+import Footer from './Models/Footer';
+
 import { elements } from './Views/base';
-import { addTodoItem, deleteItem } from './Views/mainList';
+import { renderTodoItem, deleteItem, renderTodoList } from './Views/mainList';
+import { renderFooter } from './Views/todoFooterView';
+
 import '../css/style.css';
+
+const state = {};
+
+const controlTODOadd = async () => {
+    if (!state.Todo){
+        state.Todo = new Todo();
+    }
+}
+
+const footerSetup = async () => {
+    const footer = new Footer();
+    //const image = await footer.getImage();
+    //renderFooter(image);
+}
+
+window.addEventListener('load', () => {
+    controlTODOadd();
+    state.Todo.readStorage();
+    renderTodoList(state.Todo.Todo);
+    footerSetup();
+});
+
+const windowLoad = () => {
+    controlTODOadd();
+    state.Todo.readStorage();
+    renderTodoList(state.Todo.Todo);
+}
 
 elements.TheTODOListDiv.addEventListener('click', e => {
     if (e.target.matches('.addBtn, .addBtn *')){
-        //Handle add click
-        addTodoItem(elements.TODOInput.value);
+        controlTODOadd();
+        const item = state.Todo.addTodo(elements.TODOInput.value);
+        renderTodoItem(item);
     }
 });
 
@@ -13,6 +46,7 @@ elements.TODOMiddleSection.addEventListener('click', e => {
     const id = e.target.closest('.todoItem').dataset.itemid;
     if (e.target.matches('.delTodoItem, .delTodoItem *')){
         deleteItem(id);
+        state.Todo.deleteItem(id);
     }
 });
 

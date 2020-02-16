@@ -12,8 +12,10 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2",
+    "bootstrap": "^4.4.1",
     "core-js": "^3.6.4",
     "fractional": "^1.0.0",
+    "regenerator-runtime": "^0.13.3",
     "uniqid": "^5.2.0"
   },
   "devDependencies": {

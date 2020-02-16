@@ -1,10 +1,41 @@
+@-webkit-keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+body {
+  border: none;
+  color: #black;
+  background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+  background-size: 400% 400%;
+  -webkit-animation: Gradient 15s ease infinite;
+  animation: Gradient 15s ease infinite;
+}
+
 .MainContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  position: relative;
+  top: 80px;
+  left: 0%;
+  justify-content: center;
+  color: #fff;
 }
 
 .TODO {
@@ -22,13 +53,11 @@
 .TODOMiddleSection {
   height: 300px;
   border: thin;
-  border: 1px solid black;
   display: block;
 }
 
 .TODOBottomSection {
-  height: 40px;
-  border: 1px solid black;
+  height: 200px;
   display: block;
 }
 
@@ -41,45 +70,62 @@
 
 /* Include the padding and border in an element's total width and height */
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /* Remove margins and padding from the list */
 ul {
+  list-style: none;
+  padding: 0;
+  list-style-type: none;
   margin: 0.25;
-  padding: 0.25;
-  max-height: 280px;
+  max-height: 300px;
   /*The important part*/
+  width: 300px;
   overflow-y: auto;
   /*Also...*/
   overflow-x: hidden;
   /*And the end of the important part*/
+  display: inline-block;
+}
+
+ul li:before {
+  content: "";
+  line-height: 1em;
+  width: 0.5em;
+  height: 0.5em;
+  background-color: blue;
+  float: left;
+  margin: 0.25em 0.25em 0;
+  border-radius: 50%;
 }
 
 /* Style the list items */
 ul li {
   cursor: pointer;
-  position: relative;
-  padding: 12px 8px 12px 40px;
-  background: #eee;
+  text-align: right;
+  position: right;
+  padding: 12px 8px 12px 5px;
   font-size: 18px;
-  -webkit-transition: 0.2s;
   transition: 0.2s;
+  background: black;
   /* make the list items unselectable */
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  border: 2px solid black;
+  border-radius: 5px;
 }
 
 /* Set all odd list items to a different color (zebra-stripes) */
 ul li:nth-child(odd) {
-  background: #f9f9f9;
+  background: green;
 }
 
 /* Darker background-color on hover */
 ul li:hover {
+  transition-duration: 3s;
   background: #ddd;
 }
 
@@ -92,15 +138,13 @@ ul li.checked {
 
 /* Add a "checked" mark when clicked on */
 ul li.checked::before {
-  content: '';
-  position: absolute;
+  content: "";
+  position: left;
   border-color: #fff;
   border-style: solid;
   border-width: 0 2px 2px 0;
   top: 10px;
-  left: 16px;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
   height: 15px;
   width: 7px;
 }
@@ -142,40 +186,38 @@ input {
   padding: 10px;
   float: left;
   font-size: 16px;
+  background-color: lightgray;
 }
 
 /* Style the "Add" button */
 .addBtn {
-  padding: 10px;
   width: 25%;
   height: 100%;
-  background: #d9d9d9;
-  color: #555;
   border: none;
   text-align: center;
   font-size: 16px;
   cursor: pointer;
-  -webkit-transition: 0.3s;
   transition: 0.3s;
-  border-radius: 0;
-  text-decoration: none;
-  display: inline-block;
-  background-color: #4CAF50;
-  /* Green */
 }
 
 .addBtn:hover {
-  background-color: lightgray;
+  background-color: black;
 }
 
 .delTodoItem {
   text-align: right;
   cursor: pointer;
-  border: none;
+  border: 2px solid black;
+  border-radius: 5px;
+  -moz-transition: background-color 1s 0.5s, color 2s;
+  -o-transition: background-color 1s 0.5s, color 2s;
+  -webkit-transition: background-color 1s 0.5s, color 2s;
+  transition: background-color 1s 0.5s, color 2s;
 }
 
 .delTodoItem:hover {
-  background-color: red;
+  color: red;
+  background-color: blue;
 }
 
 .todoDelSpan {
@@ -188,5 +230,7 @@ input {
   width: 75%;
   vertical-align: middle;
   height: 100%;
+  background-color: lightgray;
 }
+
 /*# sourceMappingURL=style.css.map */
