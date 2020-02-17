@@ -29,13 +29,30 @@ body {
   animation: Gradient 15s ease infinite;
 }
 
+.Section2 {
+  float: left;
+  top: 40px;
+  left: 320px;
+  width: 60%;
+  position: absolute;
+}
+
+.catFacts {
+  width: 40%;
+  height: 200px;
+  text-color: blue;
+  border: thin;
+  border-color: blue;
+}
+
 .MainContainer {
   display: flex;
   position: relative;
-  top: 80px;
+  top: 40px;
   left: 0%;
-  justify-content: center;
+  justify-content: left;
   color: #fff;
+  float: left;
 }
 
 .TODO {
@@ -51,14 +68,14 @@ body {
 }
 
 .TODOMiddleSection {
-  height: 300px;
+  height: 75%;
   border: thin;
   display: block;
 }
 
 .TODOBottomSection {
   height: 200px;
-  display: block;
+  display: relative;
 }
 
 .close {
@@ -79,13 +96,7 @@ ul {
   padding: 0;
   list-style-type: none;
   margin: 0.25;
-  max-height: 300px;
-  /*The important part*/
   width: 300px;
-  overflow-y: auto;
-  /*Also...*/
-  overflow-x: hidden;
-  /*And the end of the important part*/
   display: inline-block;
 }
 

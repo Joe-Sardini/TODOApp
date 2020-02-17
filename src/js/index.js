@@ -1,9 +1,11 @@
 import Todo from './Models/Todo';
 import Footer from './Models/Footer';
+import CatFact from './Models/CatFacts';
 
 import { elements } from './Views/base';
 import { renderTodoItem, deleteItem, renderTodoList } from './Views/mainList';
 import { renderFooter } from './Views/todoFooterView';
+import { renderCatFacts } from './Views/catFactsView.js';
 
 import '../css/style.css';
 
@@ -21,11 +23,21 @@ const footerSetup = async () => {
     //renderFooter(image);
 }
 
+const catFactsSetup = async () => {
+    const catFacts = new CatFact();
+    const cFacts = await catFacts.loadCatFacts();
+    const interval = window.setInterval(renderCatFacts, 2000, cFacts);
+    setTimeout(() => {
+        clearInterval(interval);
+    }, 12000);
+}
+
 window.addEventListener('load', () => {
     controlTODOadd();
     state.Todo.readStorage();
     renderTodoList(state.Todo.Todo);
     footerSetup();
+    catFactsSetup();
 });
 
 const windowLoad = () => {
