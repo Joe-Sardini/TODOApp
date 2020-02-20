@@ -2,6 +2,11 @@ import { elements } from './base';
 
 export const renderCatFacts = fact => {
     if (fact){
-        elements.CatFactsSpan.innerHTML += `${fact[Math.ceil(Math.random()*fact.length)].text}<BR><BR>`;
+        const rnd = Math.ceil(Math.random()*fact.length);
+        elements.CatFactsSpan.innerHTML += `<BR>${rnd}: ${fact[rnd].text}<BR>`;
     }
+}
+
+export const clearCatFacts = () => {
+    elements.CatFactsSpan.innerHTML = '';
 }

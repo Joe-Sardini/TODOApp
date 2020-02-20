@@ -5,5 +5,6 @@ export const elements = {
     TODOBottomSection: document.querySelector('.TODOBottomSection'),
     TODOList: document.querySelector('.myUL'),
     TODOInput: document.querySelector('.myInput'),
-    CatFactsSpan: document.querySelector('.catFacts')
+    CatFactsSpan: document.querySelector('.catFacts'),
+    Section2: document.querySelector('.Section2')
 };
