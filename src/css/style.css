@@ -9,6 +9,7 @@
     background-position: 0% 50%;
   }
 }
+
 @keyframes Gradient {
   0% {
     background-position: 0% 50%;
@@ -20,39 +21,45 @@
     background-position: 0% 50%;
   }
 }
+
 body {
   border: none;
-  color: #black;
   background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
   background-size: 400% 400%;
   -webkit-animation: Gradient 15s ease infinite;
   animation: Gradient 15s ease infinite;
 }
 
+.Header {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto 20%;
+      grid-template-columns: auto 20%;
+}
+
 .Section2 {
-  float: left;
   top: 40px;
-  left: 320px;
   width: 60%;
-  position: absolute;
 }
 
 .catFacts {
-  width: 40%;
   height: 200px;
-  text-color: blue;
   border: thin;
-  border-color: blue;
 }
 
 .MainContainer {
-  display: flex;
-  position: relative;
-  top: 40px;
-  left: 0%;
-  justify-content: left;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 400px 600px auto;
+      grid-template-columns: 400px 600px auto;
+  top: 50px;
   color: #fff;
-  float: left;
+  position: relative;
+}
+
+.TheTODOList {
+  -ms-grid-column-align: center;
+      justify-self: center;
 }
 
 .TODO {
@@ -87,7 +94,8 @@ body {
 
 /* Include the padding and border in an element's total width and height */
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 /* Remove margins and padding from the list */
@@ -103,11 +111,11 @@ ul {
 ul li:before {
   content: "";
   line-height: 1em;
-  width: 0.5em;
-  height: 0.5em;
+  width: .5em;
+  height: .5em;
   background-color: blue;
   float: left;
-  margin: 0.25em 0.25em 0;
+  margin: .25em .25em 0;
   border-radius: 50%;
 }
 
@@ -118,6 +126,7 @@ ul li {
   position: right;
   padding: 12px 8px 12px 5px;
   font-size: 18px;
+  -webkit-transition: 0.2s;
   transition: 0.2s;
   background: black;
   /* make the list items unselectable */
@@ -136,7 +145,8 @@ ul li:nth-child(odd) {
 
 /* Darker background-color on hover */
 ul li:hover {
-  transition-duration: 3s;
+  -webkit-transition-duration: 3s;
+          transition-duration: 3s;
   background: #ddd;
 }
 
@@ -149,13 +159,14 @@ ul li.checked {
 
 /* Add a "checked" mark when clicked on */
 ul li.checked::before {
-  content: "";
+  content: '';
   position: left;
   border-color: #fff;
   border-style: solid;
   border-width: 0 2px 2px 0;
   top: 10px;
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   height: 15px;
   width: 7px;
 }
@@ -208,6 +219,7 @@ input {
   text-align: center;
   font-size: 16px;
   cursor: pointer;
+  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
@@ -220,8 +232,6 @@ input {
   cursor: pointer;
   border: 2px solid black;
   border-radius: 5px;
-  -moz-transition: background-color 1s 0.5s, color 2s;
-  -o-transition: background-color 1s 0.5s, color 2s;
   -webkit-transition: background-color 1s 0.5s, color 2s;
   transition: background-color 1s 0.5s, color 2s;
 }
@@ -243,5 +253,4 @@ input {
   height: 100%;
   background-color: lightgray;
 }
-
 /*# sourceMappingURL=style.css.map */
